@@ -50,29 +50,13 @@ def apply_angry(img: Image.Image, style: str) -> Image.Image:
     return Image.blend(base, red_tint, 0.35)
 
 def apply_nostalgic(img: Image.Image, style: str) -> Image.Image:
+    # TODO 4: Feeling Nostalgic
     """
-    Applies a nostalgic sepia-style filter.
+        Complete a function that applies a nostalgic (sepia-style) filter to an image. The function should convert the
+        image to RGB, turn it grayscale, apply sepia tones, and then adjust contrast and blur based on the selected style
+        (more intense vs. subtle). Finally, return the modified image so it can continue through the editing pipeline.
     """
-    img = ensure_rgb(img)
-
-    # Convert image to grayscale then colorize with sepia tones
-    gray = img.convert("L")
-    sepia = ImageOps.colorize(
-        gray,
-        black="#1a0f08",
-        white="#f3d7b6"
-    ).convert("RGB")
-
-    # Adjust contrast and blur based on style
-    if style == "intense":
-        sepia = ImageEnhance.Contrast(sepia).enhance(1.15)
-        sepia = sepia.filter(ImageFilter.GaussianBlur(radius=0.7))
-    else:
-        sepia = ImageEnhance.Contrast(sepia).enhance(1.05)
-        sepia = sepia.filter(ImageFilter.GaussianBlur(radius=0.4))
-
-    return sepia
-
+    return None
 
 def apply_dreamy(img: Image.Image, style: str) -> Image.Image:
     """
@@ -136,17 +120,13 @@ def apply_mood(img: Image.Image, mood: str, style: str) -> Image.Image:
         return apply_calm(img, "soft")
 
 def square_crop(img: Image.Image) -> Image.Image:
+    #TODO 3: A little square cropping
     """
-    Crops the image to a centered square.
+        Implement a function that center-crops an image into a perfect square by using the smaller image dimension,
+        calculating the excess space evenly on all sides, and cropping accordingly. You’ll be working directly with
+        the image, so refer to the Pillow documentation for guidance.
     """
-    w, h = img.size
-    side = w if w < h else h
-
-    left = (w - side) // 2
-    top = (h - side) // 2
-
-    return img.crop((left, top, left + side, top + side))
-
+    return None
 
 def wide_crop(img: Image.Image) -> Image.Image:
     """
@@ -178,7 +158,6 @@ def portrait_crop(img: Image.Image) -> Image.Image:
     top = (h - target_h) // 2
     return img.crop((0, top, w, top + target_h))
 
-
 def apply_frame(img: Image.Image, frame: str) -> Image.Image:
     """
     Applies the selected frame crop to the image.
@@ -199,10 +178,17 @@ def auto_resize(img: Image.Image) -> Image.Image:
     based on its orientation.
     """
     w, h = img.size
-
     if w == h:
         return img.resize((900, 900))
     elif w > h:
         return img.resize((1280, 720))
     else:
         return img.resize((720, 1280))
+
+#TODO 5: Create your own Mood
+"""
+    Create a new custom mood filter (any vibe you choose) that noticeably changes the image using tools like brightness, 
+    contrast, blur, sharpen, invert, or colorize. It must support soft (subtle) and intense (stronger) styles. 
+    Then update the mood menu and routing logic so the user can select your new mood and it gets applied when the program 
+    runs and saves the final image. **YOU HAVE TO CREATE A NEW FUNCTION FOR THIS!**
+"""

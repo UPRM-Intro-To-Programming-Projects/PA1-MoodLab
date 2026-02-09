@@ -1,10 +1,5 @@
-# =========================
-# editorTools.py
-# =========================
-
 from PIL import Image, ImageDraw
 from datetime import datetime
-
 
 def stamp_creation_time(img: Image.Image) -> Image.Image:
     """
@@ -29,11 +24,7 @@ def stamp_creation_time(img: Image.Image) -> Image.Image:
     return img
 
 
-def add_overlay(
-    img: Image.Image,
-    overlay_name: str,
-    stickers_folder: str = "Stickers"
-) -> Image.Image:
+def add_overlay( img: Image.Image, overlay_name: str, stickers_folder: str = "Stickers") -> Image.Image:
     """
     Adds a sticker image to the bottom-right corner of the image.
     """

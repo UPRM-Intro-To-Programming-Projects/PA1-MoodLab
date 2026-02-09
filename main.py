@@ -31,11 +31,11 @@ def main():
     # Apply rule-based adjustments
     mood, style, frame = guardrails(mood, style, frame)
 
-    # Processing pipeline
-    img = apply_frame(img, frame)       # Crop image
-    img = auto_resize(img)              # Resize to standard resolution
-    img = apply_mood(img, mood, style)  # Apply visual effect
-
+    # TODO 2: Processing Pipeline Problem
+    """
+        Restore the image processing pipeline by applying the steps in order: apply the frame, crop the image, 
+        resize it to the correct resolution, then apply the mood effect using the chosen mood and style.
+    """
     # Add timestamp and overlay
     img = stamp_creation_time(img)
     img = add_overlay(img, overlay_name, stickers_folder="Stickers")

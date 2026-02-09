@@ -1,34 +1,10 @@
-# =========================
-# editorUI.py
-# =========================
-
+# TODO 1: Picking the Mood
+"""
+    When the program starts, prompt the user to choose a mood. Update the pick_mood() function so it reads
+    the user’s input and returns the selected mood as a string (for example, option 1 returns "calm").
+"""
 def pick_mood() -> str:
-    # Display mood options
-    print("\nPick a mood:")
-    print("1) Calm")
-    print("2) Angry")
-    print("3) Nostalgic")
-    print("4) Dreamy")
-    print("5) Chaotic")
-
-    choice = input("> ").strip()
-
-    # Return selected mood
-    if choice == "1":
-        return "calm"
-    elif choice == "2":
-        return "angry"
-    elif choice == "3":
-        return "nostalgic"
-    elif choice == "4":
-        return "dreamy"
-    elif choice == "5":
-        return "chaotic"
-    else:
-        # Default fallback
-        print("Invalid mood. Defaulting to Calm.")
-        return "calm"
-
+    return None
 
 def pick_style() -> str:
     # Display style options
@@ -46,7 +22,6 @@ def pick_style() -> str:
     else:
         print("Invalid style. Defaulting to Soft.")
         return "soft"
-
 
 def pick_frame() -> str:
     # Display frame options
@@ -86,7 +61,6 @@ def pick_overlay() -> str:
 
     return ""
 
-
 def guardrails(mood: str, style: str, frame: str) -> tuple[str, str, str]:
     """
     Enforces simple rules to avoid bad combinations.
@@ -101,7 +75,6 @@ def guardrails(mood: str, style: str, frame: str) -> tuple[str, str, str]:
         print("\nWarning: Chaotic + Portrait can look harsh.")
 
     return mood, style, frame
-
 
 def build_output_name(input_path: str, mood: str, style: str, frame: str) -> str:
     """

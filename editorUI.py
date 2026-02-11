@@ -3,10 +3,10 @@
     When the program starts, prompt the user to choose a mood. Update the pick_mood() function so it reads
     the user’s input and returns the selected mood as a string (for example, option 1 returns "calm").
 """
-def pick_mood() -> str:
+def pick_mood():
     return None
 
-def pick_style() -> str:
+def pick_style():
     # Display style options
     print("\nPick a style:")
     print("1) Soft")
@@ -23,7 +23,7 @@ def pick_style() -> str:
         print("Invalid style. Defaulting to Soft.")
         return "soft"
 
-def pick_frame() -> str:
+def pick_frame():
     # Display frame options
     print("\nPick a frame:")
     print("1) None")
@@ -46,8 +46,7 @@ def pick_frame() -> str:
         print("Invalid frame. Defaulting to None.")
         return "none"
 
-
-def pick_overlay() -> str:
+def pick_overlay():
     # Ask user if they want an overlay
     print("\nOverlay image?")
     print("1) None")
@@ -61,7 +60,7 @@ def pick_overlay() -> str:
 
     return ""
 
-def guardrails(mood: str, style: str, frame: str) -> tuple[str, str, str]:
+def guardrails(mood, style, frame):
     """
     Enforces simple rules to avoid bad combinations.
     """
@@ -76,7 +75,7 @@ def guardrails(mood: str, style: str, frame: str) -> tuple[str, str, str]:
 
     return mood, style, frame
 
-def build_output_name(input_path: str, mood: str, style: str, frame: str) -> str:
+def build_output_name(input_path, mood, style, frame):
     """
     Generates a descriptive output filename.
     """
